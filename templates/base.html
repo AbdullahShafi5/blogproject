@@ -1,0 +1,118 @@
+<title>{% block title %}{% endblock title %}</title>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <script  src="https://code.jquery.com/jquery-3.6.0.js" ></script>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <!-- <script src="{% static 'jsx/base.js' %}"></script> -->
+</head>
+<body>
+  <nav>
+    <div class="menu-icon">
+       <span class="fas fa-bars"></span>
+    </div>
+    <div class="logo">
+      <a href="/" style="text-decoration: none; color:#fff">CodingMaf!a</a> 
+    </div>
+    <div class="nav-items">      
+       <li><a href="/">Home</a></li>
+       <li><a href="/about">About</a></li>
+       <li><a href="/blog">Blogs</a></li>
+       <li><a href="/contact">Contact</a></li>
+       <li><a href="/signup">Signup</a></li>
+       
+    </div>
+    <div class="search-icon">
+       <span class="fas fa-search"></span>
+    </div>
+    <div class="cancel-icon">
+       <span class="fas fa-times"></span>
+    </div>
+    <form method="get"  action="/search">
+       <input type="search" class="search-data" placeholder="Search" required name="query" id="query">
+       <button type="submit" class="fas fa-search"></button>
+    </form>
+ </nav>
+
+<script>
+  const menuBtn = document.querySelector(".menu-icon span");
+  const searchBtn = document.querySelector(".search-icon");
+  const cancelBtn = document.querySelector(".cancel-icon");
+  const items = document.querySelector(".nav-items");
+  const form = document.querySelector("form");
+  menuBtn.onclick = ()=>{
+    items.classList.add("active");
+    menuBtn.classList.add("hide");
+    searchBtn.classList.add("hide");
+    cancelBtn.classList.add("show");
+  }
+  cancelBtn.onclick = ()=>{
+    items.classList.remove("active");
+    menuBtn.classList.remove("hide");
+    searchBtn.classList.remove("hide");
+    cancelBtn.classList.remove("show");
+    form.classList.remove("active");
+    cancelBtn.style.color = "#f2f2f2";
+  }
+  searchBtn.onclick = ()=>{
+    form.classList.add("active");
+    searchBtn.classList.add("hide");
+    cancelBtn.classList.add("show");
+  }
+</script> 
+
+
+{% block body %}
+{% endblock body %}
+
+<footer class="footer">
+  <div class="l-footer">
+  <h1>
+  CodingMaf!a</h1>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam atque recusandae in sit sunt molestiae aliquid fugit. Mollitia eaque tempore iure sit nobis? Vitae nemo, optio maiores numquam quis recusandae.</p>
+  </div>
+  <ul class="r-footer">
+  <li>
+    <h2>
+      Arrest Mafia</h2>
+  <ul class="box">
+  <li><a href="#">Discord</a></li>
+  <li><a href="#">Twitter</a></li>
+  <li><a href="#">Reddit</a></li>
+  <li><a href="#">GitHub</a></li>
+  </ul>
+  </li>
+  <li class="features">
+    <h2>
+  !nfo</h2>
+  <ul class="box h-box">
+  <li><a href="blog">Blog</a></li>
+  <li><a href="blog">pyBlog</a></li>
+  <li><a href="blog">Django</a></li>
+  <!-- <li><a href="#">Tickets</a></li>
+  <li><a href="#">Certifications</a></li>
+  <li><a href="#">Customer Service</a></li> -->
+  </ul>
+  </li>
+  <li class="lgl">
+    <h2>
+  !important</h2>
+  <ul class="box">
+  <li><a href="#">Privacy Policy</a></li>
+  <li><a href="#">Terms of Use</a></li>
+  <li><a href="contact">Contract</a></li>
+  </ul>
+  </li>
+  </ul>
+  </footer>
+  <div class="footer-bottom-shit">© No Bullshit copyRights Reserved Yet🤪</div>
+  </body>
+</html>

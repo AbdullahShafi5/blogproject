@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block body %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <title>Sign Up | By Code </title> -->
+    <!-- <link rel="stylesheet" href="Css/style.css" /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login_signup.css' %}" />
+  </head>
+  <body>
+    <div class="signup-box">
+      <h1 class="sgn_tx">Sign Up</h1>      
+      <form method="POST" action="/signup"> {% csrf_token %}
+        <label>Name</label>
+        <input type="text" placeholder="Wtf people call you " name="name" />
+        <label>Email</label>
+        <input type="email" placeholder="Your Email" name="email" />
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          id="password"
+        />
+        <span class="eye-ic" onclick="toggle()">
+          <i class="fas fa-eye" id="eye_icon" ></i>
+          <i class="fas fa-eye-slash" id="hide2"></i>
+        </span>
+        <input type="submit" value="SignUp" />
+      </form>
+      <script>
+        function toggle(){
+          var x = document.getElementById("password");
+          var y = document.getElementById("eye_icon");
+          var z = document.getElementById("hide2");
+          if (x.type === "password") {
+            x.type = "text";
+            y.style.display = "block";
+            z.style.display = "none";
+          } 
+          else {
+            x.type = "password";
+            y.style.display = "none";
+            z.style.display = "block";
+          }
+        }
+      </script>
+      <style>
+        .eye-ic {
+          position: relative;
+          top: -24px;
+          float: right;
+          margin-right: 5px;
+          cursor: pointer;
+        }
+      </style>
+    </div>
+    <p class="para-2">
+      Already have an account? <a href="login">Login here</a>
+    </p>
+  </body>
+</html>
+{% endblock body %}

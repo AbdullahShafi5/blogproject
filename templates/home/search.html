@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+<title>{% block title %}Search Results{% endblock title %}</title>
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous"> -->
+  </head>
+  <body>
+    <div class="my-cst-btn" style="box-shadow: none">
+      <div><h3>Search Results :</h3></div>
+      {% if allposts|length < 1 %}
+      <h3>No result Found</h3>
+
+      <p style="font-size:15px" >your search <b style="font-size: 18px!important; color:rgb(124, 21, 221)">{{query}}</b> did not match any documents</p><br>
+      <p>Suggestions:</p>
+      <ul>
+        <li>Make sure that all words are spelled correctly</li>
+        <li>Try Different KeyWords</li>
+        <li>Try more general keyWords</li>
+        <li>Try fewer keywords</li>
+      </ul>
+      {% endif %}
+      {% for post in allposts %}
+      <div class="my-cst-btn" style="padding: 10px">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong
+            style="font-weight: 450"
+            class="d-inline-block mb-2 text-primary"
+            >{{post.title}}</strong
+          >
+          <h3 style="font-weight: 500">author:{{post.author}}</h3>
+          <div class="mb-1 text-muted">{{post.datetime}}</div>
+
+          <p class="card-text mb-auto" style="padding: 14px">
+            {{post.content |truncatechars:150}}
+          </p>
+          <br />
+          <div class="stretch-linksd">
+            <a
+             role="button"
+              href="/blog/{{post.slug}}"
+              class="stretched-links"
+              style="
+                background-color: rgb(83, 95, 226);
+                text-decoration: none;
+                padding: 5px;
+                border-radius: 3px;
+                color: whitesmoke;
+              "
+              >Continue reading</a
+            >
+          </div>
+        </div>
+        <!-- <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="200" height="250"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+  
+          </div> -->
+      </div>
+      {% endfor %}
+      <style>
+      
+        .my-cst-btn {
+          box-sizing: content-box;
+          max-width: 1200px;
+          width: auto;
+          height: auto;
+          margin: auto;
+
+          margin-top: 13px;
+          box-shadow: 0px 0px 3px 3px rgba(233, 233, 233, 0.801);
+        }
+      </style>
+    </div>
+  </body>
+</html>
+{% endblock body %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+<title>{% block title %}{% endblock title %}</title>
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blghmpst.css' %}">
+  </head>
+  
+  <body>
+    <div class="blg-pst-cont">
+      <div class="blgpst">
+        <h2 class="blg-pst-tlt">{{post.title}}</h2>
+        
+        <p>{{post.content}}</p>
+        <small> <p class="blg-pst-mta">{{post.timestamps}}</p></small>
+        <small> <small> <p class="blg-pst-mta"><a href="#" style="text-decoration: none;"> by {{post.author}} </a> </p></small></small>
+      </div>
+    </div>
+   <style>
+    @media only screen and (max-width:608px) {
+      body{
+        overflow-x: hidden;
+      }
+    }
+   </style>
+  </body>
+</html>
+{% endblock body %}

@@ -1,0 +1,31 @@
+/*blopost*/
+
+.blg-pst-cont {
+    max-width: 1000px;
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-top: 13px;
+    background-color: rgb(253, 251, 251);
+    padding: 30px;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.blg-pst-mta {
+    text-align: right;
+}  
+
+
+/* blog-home */
+
+
+.my-cst-btn {
+    box-sizing: content-box;
+    max-width: 1200px;
+    width: auto;
+    height: auto;
+    margin: auto;
+
+    margin-top: 13px;
+    box-shadow: 0px 0px 3px 3px rgba(233, 233, 233, 0.801);
+}
+  
